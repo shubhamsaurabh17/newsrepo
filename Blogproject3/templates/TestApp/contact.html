@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends "TestApp/base.html" %}
+{% load staticfiles%}
+{%block title_block%}Contact{%endblock%}
+{% block content_block%}
+<h2 id="xy">Pritam Kumar Raw
+  <img src="{% static "images/pritam.jpg" %}" height=250 width=250 class="cool"><br />
+  Contact Num: 7903229354<br />
+  WhatsApp Num: 9534411155</h2>
+  <div class="coo">
+    <ul>
+<li><a href="https://www.facebook.com/PritamKRaw"><img src="{% static "images/a1.jpg" %}" height=40 width=40 class="cool"></a></li>
+<li><a href="https://twitter.com/PritamRaw?s=09"><img src="{% static "images/a2.jpg" %}" height=40 width=40 class="cool"></a></li>
+  <li><a href="https://www.youtube.com/c/PritamKumarRaw"><img src="{% static "images/a3.jpg" %}" height=40 width=40 class="cool"></a></li>
+</ul>
+</div>
+<button type="button" id="adm" class="btn btn-success"><a href="/SS">Admin</a></button>
+{%endblock%}

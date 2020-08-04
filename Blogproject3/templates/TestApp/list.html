@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "TestApp/base.html" %}
+{%block title_block%}Homepage{%endblock%}
+
+{%block content_block%}
+{% for post in post_list%}
+<h2><a href="{{post.get_absolute_url}}" class="tt">{{post.title}}</a></h2>
+<p id="date">Published On {{post.publish}} By {{post.author|title}}</p>
+{{post.body|truncatewords:50|linebreaks}}
+<hr />
+{%endfor%}
+{% include 'TestApp/pagination.html' with page=post_list%}
+{%endblock%}

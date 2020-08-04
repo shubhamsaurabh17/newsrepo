@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load TestApp_tags%}
+{% load staticfiles%}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static "css/demo.css" %}">
+  <title>{% block title_block%}{%endblock%}</title>
+</head>
+<body>
+  <div id="content">
+    <h1 class="hd">The Voice Of Rajoun<h1>
+      <hr />
+    {% block content_block%}
+    {%endblock%}
+  </div>
+
+  <div id="sidebar">
+    <h2 id="head">Pritam Kumar Raw</h2>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/feed">Feedback</a>
+        </li>
+      </ul>
+    </nav>
+
+    {% block sidebar%}
+    <p class="count2">The Total Number Of Published Posts Upto Today: <span class="count1">{%total_posts%}</span></p>
+    <h3 class="count3">Latest Posts:</h3>{% show_latest_posts %}
+    <h3 class="count3">Most Commented Posts:</h3>
+{% get_most_commented_posts as most_commented_posts%}
+<ul>
+{% for post in most_commented_posts %}
+<li><a href="{{post.get_absolute_url}}" id='la'>{{post.title}}</a></li>
+{% endfor %}
+</ul>
+{%endblock%}
+  </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<div class="paginator">
+<span>
+  {%if page.has_previous%}
+  <a href="?page={{page.previous_page_number}}" type="button" class="btn btn-warning btn-sm">Previous</a>
+  {%endif%}
+</span>
+<span class='current'>
+  &nbsp Page &nbsp  {{page.number}} &nbsp  Of &nbsp  {{page.paginator.num_pages}} &nbsp
+  </span>
+  <span>
+  {%if page.has_next%}
+  <a href="?page={{page.next_page_number}}" type="button" class="btn btn-warning btn-sm">Next</a>
+  {%endif%}
+</span>
+</div>
